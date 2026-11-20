@@ -1,0 +1,330 @@
+{
+ "format_version": "1.8.0",
+ "render_controllers": {
+  "controller.render.hs_readout": {
+   "arrays": {
+    "geometries": {
+     "Array.hs_geo": [
+      "Geometry.hs_readout_0",
+      "Geometry.hs_readout_1",
+      "Geometry.hs_readout_2",
+      "Geometry.hs_readout_3",
+      "Geometry.hs_readout_4",
+      "Geometry.hs_readout_5",
+      "Geometry.hs_readout_6",
+      "Geometry.hs_readout_7",
+      "Geometry.hs_readout_8",
+      "Geometry.hs_readout_9",
+      "Geometry.hs_readout_10",
+      "Geometry.hs_readout_11",
+      "Geometry.hs_readout_12"
+     ]
+    }
+   },
+   "geometry": "Array.hs_geo[variable.hs_xi]",
+   "materials": [
+    {
+     "*": "Material.hs_text"
+    }
+   ],
+   "textures": [
+    "Texture.hs_font"
+   ],
+   "ignore_lighting": true,
+   "filter_lighting": true,
+   "part_visibility": [
+    {
+     "*": true
+    },
+    {
+     "hs_fps_l0": "variable.hs_sf"
+    },
+    {
+     "hs_fps_l1": "variable.hs_sf"
+    },
+    {
+     "hs_fps_l2": "variable.hs_sf"
+    },
+    {
+     "hs_cps_l0": "variable.hs_sc"
+    },
+    {
+     "hs_cps_l1": "variable.hs_sc"
+    },
+    {
+     "hs_cps_l2": "variable.hs_sc"
+    },
+    {
+     "hs_fps_n1_p1_0": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 0"
+    },
+    {
+     "hs_fps_n1_p1_1": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 1"
+    },
+    {
+     "hs_fps_n1_p1_2": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 2"
+    },
+    {
+     "hs_fps_n1_p1_3": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 3"
+    },
+    {
+     "hs_fps_n1_p1_4": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 4"
+    },
+    {
+     "hs_fps_n1_p1_5": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 5"
+    },
+    {
+     "hs_fps_n1_p1_6": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 6"
+    },
+    {
+     "hs_fps_n1_p1_7": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 7"
+    },
+    {
+     "hs_fps_n1_p1_8": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 8"
+    },
+    {
+     "hs_fps_n1_p1_9": "variable.hs_sf && variable.hs_fps >= 0 && variable.hs_fps < 10 && math.mod(math.floor(variable.hs_fps), 10) == 9"
+    },
+    {
+     "hs_fps_n2_p10_0": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 0"
+    },
+    {
+     "hs_fps_n2_p10_1": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 1"
+    },
+    {
+     "hs_fps_n2_p10_2": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 2"
+    },
+    {
+     "hs_fps_n2_p10_3": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 3"
+    },
+    {
+     "hs_fps_n2_p10_4": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 4"
+    },
+    {
+     "hs_fps_n2_p10_5": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 5"
+    },
+    {
+     "hs_fps_n2_p10_6": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 6"
+    },
+    {
+     "hs_fps_n2_p10_7": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 7"
+    },
+    {
+     "hs_fps_n2_p10_8": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 8"
+    },
+    {
+     "hs_fps_n2_p10_9": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 9"
+    },
+    {
+     "hs_fps_n2_p1_0": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 0"
+    },
+    {
+     "hs_fps_n2_p1_1": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 1"
+    },
+    {
+     "hs_fps_n2_p1_2": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 2"
+    },
+    {
+     "hs_fps_n2_p1_3": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 3"
+    },
+    {
+     "hs_fps_n2_p1_4": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 4"
+    },
+    {
+     "hs_fps_n2_p1_5": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 5"
+    },
+    {
+     "hs_fps_n2_p1_6": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 6"
+    },
+    {
+     "hs_fps_n2_p1_7": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 7"
+    },
+    {
+     "hs_fps_n2_p1_8": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 8"
+    },
+    {
+     "hs_fps_n2_p1_9": "variable.hs_sf && variable.hs_fps >= 10 && variable.hs_fps < 100 && math.mod(math.floor(variable.hs_fps), 10) == 9"
+    },
+    {
+     "hs_fps_n3_p100_0": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 0"
+    },
+    {
+     "hs_fps_n3_p100_1": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 1"
+    },
+    {
+     "hs_fps_n3_p100_2": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 2"
+    },
+    {
+     "hs_fps_n3_p100_3": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 3"
+    },
+    {
+     "hs_fps_n3_p100_4": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 4"
+    },
+    {
+     "hs_fps_n3_p100_5": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 5"
+    },
+    {
+     "hs_fps_n3_p100_6": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 6"
+    },
+    {
+     "hs_fps_n3_p100_7": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 7"
+    },
+    {
+     "hs_fps_n3_p100_8": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 8"
+    },
+    {
+     "hs_fps_n3_p100_9": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 100), 10) == 9"
+    },
+    {
+     "hs_fps_n3_p10_0": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 0"
+    },
+    {
+     "hs_fps_n3_p10_1": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 1"
+    },
+    {
+     "hs_fps_n3_p10_2": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 2"
+    },
+    {
+     "hs_fps_n3_p10_3": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 3"
+    },
+    {
+     "hs_fps_n3_p10_4": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 4"
+    },
+    {
+     "hs_fps_n3_p10_5": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 5"
+    },
+    {
+     "hs_fps_n3_p10_6": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 6"
+    },
+    {
+     "hs_fps_n3_p10_7": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 7"
+    },
+    {
+     "hs_fps_n3_p10_8": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 8"
+    },
+    {
+     "hs_fps_n3_p10_9": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps / 10), 10) == 9"
+    },
+    {
+     "hs_fps_n3_p1_0": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 0"
+    },
+    {
+     "hs_fps_n3_p1_1": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 1"
+    },
+    {
+     "hs_fps_n3_p1_2": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 2"
+    },
+    {
+     "hs_fps_n3_p1_3": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 3"
+    },
+    {
+     "hs_fps_n3_p1_4": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 4"
+    },
+    {
+     "hs_fps_n3_p1_5": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 5"
+    },
+    {
+     "hs_fps_n3_p1_6": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 6"
+    },
+    {
+     "hs_fps_n3_p1_7": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 7"
+    },
+    {
+     "hs_fps_n3_p1_8": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 8"
+    },
+    {
+     "hs_fps_n3_p1_9": "variable.hs_sf && variable.hs_fps >= 100 && math.mod(math.floor(variable.hs_fps), 10) == 9"
+    },
+    {
+     "hs_cps_n1_p1_0": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 0"
+    },
+    {
+     "hs_cps_n1_p1_1": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 1"
+    },
+    {
+     "hs_cps_n1_p1_2": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 2"
+    },
+    {
+     "hs_cps_n1_p1_3": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 3"
+    },
+    {
+     "hs_cps_n1_p1_4": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 4"
+    },
+    {
+     "hs_cps_n1_p1_5": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 5"
+    },
+    {
+     "hs_cps_n1_p1_6": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 6"
+    },
+    {
+     "hs_cps_n1_p1_7": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 7"
+    },
+    {
+     "hs_cps_n1_p1_8": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 8"
+    },
+    {
+     "hs_cps_n1_p1_9": "variable.hs_sc && variable.hs_cps >= 0 && variable.hs_cps < 10 && math.mod(math.floor(variable.hs_cps), 10) == 9"
+    },
+    {
+     "hs_cps_n2_p10_0": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 0"
+    },
+    {
+     "hs_cps_n2_p10_1": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 1"
+    },
+    {
+     "hs_cps_n2_p10_2": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 2"
+    },
+    {
+     "hs_cps_n2_p10_3": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 3"
+    },
+    {
+     "hs_cps_n2_p10_4": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 4"
+    },
+    {
+     "hs_cps_n2_p10_5": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 5"
+    },
+    {
+     "hs_cps_n2_p10_6": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 6"
+    },
+    {
+     "hs_cps_n2_p10_7": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 7"
+    },
+    {
+     "hs_cps_n2_p10_8": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 8"
+    },
+    {
+     "hs_cps_n2_p10_9": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps / 10), 10) == 9"
+    },
+    {
+     "hs_cps_n2_p1_0": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 0"
+    },
+    {
+     "hs_cps_n2_p1_1": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 1"
+    },
+    {
+     "hs_cps_n2_p1_2": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 2"
+    },
+    {
+     "hs_cps_n2_p1_3": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 3"
+    },
+    {
+     "hs_cps_n2_p1_4": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 4"
+    },
+    {
+     "hs_cps_n2_p1_5": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 5"
+    },
+    {
+     "hs_cps_n2_p1_6": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 6"
+    },
+    {
+     "hs_cps_n2_p1_7": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 7"
+    },
+    {
+     "hs_cps_n2_p1_8": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 8"
+    },
+    {
+     "hs_cps_n2_p1_9": "variable.hs_sc && variable.hs_cps >= 10 && math.mod(math.floor(variable.hs_cps), 10) == 9"
+    }
+   ]
+  }
+ }
+}

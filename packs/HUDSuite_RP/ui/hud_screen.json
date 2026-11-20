@@ -1,0 +1,198 @@
+{
+ "namespace": "hud",
+ "chat_panel": {
+  "max_size": "$g_chat_max"
+ },
+ "chat_label": {
+  "variables": [
+   {
+    "requires": "$g_chat_text_custom",
+    "$chat_font_scale_factor": "$g_chat_text"
+   }
+  ]
+ },
+ "subtitle_container_content": {
+  "size": "$g_cap_size"
+ },
+ "hud_title_text": {
+  "bindings": [
+   {
+    "binding_name": "#hud_title_text_string"
+   },
+   {
+    "binding_type": "view",
+    "source_property_name": "((#hud_title_text_string - 'hscps:') = #hud_title_text_string)",
+    "target_property_name": "#visible"
+   }
+  ]
+ },
+ "root_panel": {
+  "modifications": [
+   {
+    "array_name": "controls",
+    "operation": "insert_back",
+    "value": [
+     {
+      "hs_layer@hud.hs_layer": {}
+     }
+    ]
+   }
+  ]
+ },
+ "hud_player_renderer": {
+  "type": "panel",
+  "size": "$g_fc_size",
+  "controls": [
+   {
+    "hud_player": {
+     "type": "custom",
+     "renderer": "hud_player_renderer",
+     "layer": 1,
+     "visible": "$g_fc_show"
+    }
+   }
+  ]
+ },
+ "centered_gui_elements": {
+  "modifications": [
+   {
+    "control_name": "hud_player_rend_desktop",
+    "operation": "replace",
+    "value": {
+     "hud_player_rend_desktop@hud.hud_player_renderer": {
+      "anchor_from": "$g_fc_anchor",
+      "anchor_to": "$g_fc_anchor",
+      "offset": "$g_fc_offset"
+     }
+    }
+   }
+  ]
+ },
+ "not_centered_gui_elements": {
+  "modifications": [
+   {
+    "control_name": "hud_player_rend_pocket",
+    "operation": "replace",
+    "value": {
+     "hud_player_rend_pocket@hud.hud_player_renderer": {
+      "anchor_from": "$g_fc_anchor",
+      "anchor_to": "$g_fc_anchor",
+      "offset": "$g_fc_offset"
+     }
+    }
+   }
+  ]
+ },
+ "hs_layer": {
+  "type": "panel",
+  "size": [
+   "100%",
+   "100%"
+  ],
+  "layer": 100,
+  "controls": [
+   {
+    "hs_cps_data": {
+     "type": "panel",
+     "size": [
+      0,
+      0
+     ],
+     "$update_string": "hscps:",
+     "property_bag": {
+      "#preserved_text": ""
+     },
+     "bindings": [
+      {
+       "binding_name": "#hud_title_text_string"
+      },
+      {
+       "binding_name": "#hud_title_text_string",
+       "binding_name_override": "#preserved_text",
+       "binding_condition": "visibility_changed"
+      },
+      {
+       "binding_type": "view",
+       "target_property_name": "#visible",
+       "source_property_name": "(not (#hud_title_text_string = #preserved_text) and not ((#hud_title_text_string - $update_string) = #hud_title_text_string))"
+      }
+     ]
+    }
+   },
+   {
+    "hs_counter": {
+     "type": "stack_panel",
+     "orientation": "horizontal",
+     "size": [
+      "100%c",
+      "100%cm"
+     ],
+     "anchor_from": "$g_cnt_anchor",
+     "anchor_to": "$g_cnt_anchor",
+     "offset": "$g_cnt_offset",
+     "bindings": [
+      {
+       "binding_type": "view",
+       "source_control_name": "hs_cps_data",
+       "source_property_name": "#preserved_text",
+       "target_property_name": "#pt"
+      },
+      {
+       "binding_type": "view",
+       "source_property_name": "(not ((#pt - 'hscps:') = #pt))",
+       "target_property_name": "#visible"
+      }
+     ],
+     "controls": [
+      {
+       "hs_cps_lbl": {
+        "type": "label",
+        "text": "CPS ",
+        "localize": false,
+        "shadow": true,
+        "color": [
+         0.6,
+         0.9,
+         1
+        ],
+        "font_scale_factor": "$g_cnt_scale"
+       }
+      },
+      {
+       "hs_cps_val": {
+        "type": "label",
+        "text": "#text",
+        "localize": false,
+        "shadow": true,
+        "color": [
+         0.6,
+         0.9,
+         1
+        ],
+        "font_scale_factor": "$g_cnt_scale",
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "hs_cps_data",
+          "source_property_name": "#preserved_text",
+          "target_property_name": "#pt"
+         },
+         {
+          "binding_type": "view",
+          "target_property_name": "#visible",
+          "source_property_name": "(not ((#pt - 'hscps:') = #pt))"
+         },
+         {
+          "binding_type": "view",
+          "source_property_name": "(#pt - 'hscps:')",
+          "target_property_name": "#text"
+         }
+        ]
+       }
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

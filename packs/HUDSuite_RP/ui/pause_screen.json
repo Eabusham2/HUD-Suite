@@ -1,0 +1,4588 @@
+{
+ "namespace": "pause",
+ "pause_screen_content": {
+  "modifications": [
+   {
+    "array_name": "controls",
+    "operation": "insert_back",
+    "value": [
+     {
+      "hs_editor_root@pause.hs_editor_root": {}
+     }
+    ]
+   }
+  ]
+ },
+ "hs_editor_root": {
+  "type": "panel",
+  "size": [
+   "100%",
+   "100%"
+  ],
+  "layer": 200,
+  "controls": [
+   {
+    "open_btn@common_toggles.light_text_toggle": {
+     "size": [
+      76,
+      24
+     ],
+     "anchor_from": "top_left",
+     "anchor_to": "top_left",
+     "offset": [
+      10,
+      40
+     ],
+     "layer": 60,
+     "$button_text": "HUD Editor",
+     "$toggle_name": "ed_open",
+     "$toggle_view_binding_name": "ed_open"
+    }
+   },
+   {
+    "hs_editor@pause.hs_editor": {}
+   }
+  ]
+ },
+ "hs_editor": {
+  "type": "panel",
+  "size": [
+   "100%",
+   "100%"
+  ],
+  "bindings": [
+   {
+    "binding_type": "view",
+    "source_control_name": "ed_open",
+    "source_property_name": "(#toggle_state)",
+    "target_property_name": "#visible"
+   }
+  ],
+  "controls": [
+   {
+    "dim": {
+     "type": "image",
+     "texture": "textures/ui/hs_box",
+     "color": [
+      0,
+      0,
+      0
+     ],
+     "alpha": 0.72,
+     "size": [
+      "100%",
+      "100%"
+     ]
+    }
+   },
+   {
+    "live_view": {
+     "type": "panel",
+     "size": [
+      "100%",
+      "100%"
+     ],
+     "layer": 10,
+     "bindings": [
+      {
+       "binding_type": "view",
+       "source_control_name": "ed_def",
+       "source_property_name": "(not #toggle_state)",
+       "target_property_name": "#visible"
+      }
+     ],
+     "controls": [
+      {
+       "chat_grp": {
+        "type": "panel",
+        "size": [
+         "50%",
+         "100% - 176px"
+        ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "offset": [
+         8,
+         -8
+        ],
+        "controls": [
+         {
+          "chat_region": {
+           "type": "panel",
+           "size": [
+            "100% - 18px",
+            "100% - 18px"
+           ],
+           "anchor_from": "top_left",
+           "anchor_to": "top_left",
+           "controls": [
+            {
+             "chat_box": {
+              "type": "image",
+              "texture": "textures/ui/hs_box",
+              "color": [
+               0.3,
+               0.6,
+               1
+              ],
+              "alpha": 0.45,
+              "size": [
+               "100%",
+               "100%"
+              ],
+              "anchor_from": "top_left",
+              "anchor_to": "top_left",
+              "property_bag": {
+               "#size_binding_x": 1.0,
+               "#size_binding_y": 0.5
+              },
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "ed_cw",
+                "source_property_name": "((#slider_value + 1) / 20)",
+                "target_property_name": "#size_binding_x"
+               },
+               {
+                "binding_type": "view",
+                "source_control_name": "ed_ch",
+                "source_property_name": "((#slider_value + 1) / 20)",
+                "target_property_name": "#size_binding_y"
+               }
+              ],
+              "controls": [
+               {
+                "ot": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.6,
+                  0.85,
+                  1
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "top_middle",
+                 "anchor_to": "top_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ob": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.6,
+                  0.85,
+                  1
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "bottom_middle",
+                 "anchor_to": "bottom_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ol": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.6,
+                  0.85,
+                  1
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "left_middle",
+                 "anchor_to": "left_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "or": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.6,
+                  0.85,
+                  1
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "right_middle",
+                 "anchor_to": "right_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ct0": {
+                 "type": "label",
+                 "text": "<Steve> hello",
+                 "localize": false,
+                 "color": [
+                  1,
+                  1,
+                  1
+                 ],
+                 "font_scale_factor": 0.8,
+                 "layer": 4,
+                 "anchor_from": "top_left",
+                 "anchor_to": "top_left",
+                 "offset": [
+                  3,
+                  2
+                 ],
+                 "bindings": [
+                  {
+                   "binding_type": "view",
+                   "source_control_name": "ed_tx",
+                   "source_property_name": "(#slider_value = 0)",
+                   "target_property_name": "#visible"
+                  }
+                 ]
+                }
+               },
+               {
+                "ct1": {
+                 "type": "label",
+                 "text": "<Steve> hello",
+                 "localize": false,
+                 "color": [
+                  1,
+                  1,
+                  1
+                 ],
+                 "font_scale_factor": 1.0,
+                 "layer": 4,
+                 "anchor_from": "top_left",
+                 "anchor_to": "top_left",
+                 "offset": [
+                  3,
+                  2
+                 ],
+                 "bindings": [
+                  {
+                   "binding_type": "view",
+                   "source_control_name": "ed_tx",
+                   "source_property_name": "(#slider_value = 1)",
+                   "target_property_name": "#visible"
+                  }
+                 ]
+                }
+               },
+               {
+                "ct2": {
+                 "type": "label",
+                 "text": "<Steve> hello",
+                 "localize": false,
+                 "color": [
+                  1,
+                  1,
+                  1
+                 ],
+                 "font_scale_factor": 1.25,
+                 "layer": 4,
+                 "anchor_from": "top_left",
+                 "anchor_to": "top_left",
+                 "offset": [
+                  3,
+                  2
+                 ],
+                 "bindings": [
+                  {
+                   "binding_type": "view",
+                   "source_control_name": "ed_tx",
+                   "source_property_name": "(#slider_value = 2)",
+                   "target_property_name": "#visible"
+                  }
+                 ]
+                }
+               },
+               {
+                "ct3": {
+                 "type": "label",
+                 "text": "<Steve> hello",
+                 "localize": false,
+                 "color": [
+                  1,
+                  1,
+                  1
+                 ],
+                 "font_scale_factor": 1.5,
+                 "layer": 4,
+                 "anchor_from": "top_left",
+                 "anchor_to": "top_left",
+                 "offset": [
+                  3,
+                  2
+                 ],
+                 "bindings": [
+                  {
+                   "binding_type": "view",
+                   "source_control_name": "ed_tx",
+                   "source_property_name": "(#slider_value = 3)",
+                   "target_property_name": "#visible"
+                  }
+                 ]
+                }
+               }
+              ]
+             }
+            },
+            {
+             "reg": {
+              "type": "panel",
+              "size": [
+               "100%",
+               "100%"
+              ],
+              "controls": [
+               {
+                "ot": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.4,
+                  0.4,
+                  0.4
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "top_middle",
+                 "anchor_to": "top_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ob": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.4,
+                  0.4,
+                  0.4
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "bottom_middle",
+                 "anchor_to": "bottom_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ol": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.4,
+                  0.4,
+                  0.4
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "left_middle",
+                 "anchor_to": "left_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "or": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.4,
+                  0.4,
+                  0.4
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "right_middle",
+                 "anchor_to": "right_middle",
+                 "layer": 3
+                }
+               }
+              ]
+             }
+            }
+           ]
+          }
+         },
+         {
+          "ed_cw@common.slider": {
+           "size": [
+            "100% - 18px",
+            14
+           ],
+           "anchor_from": "bottom_left",
+           "anchor_to": "bottom_left",
+           "layer": 20,
+           "$slider_name": "ed_cw",
+           "$slider_steps": 20,
+           "$slider_direction": "horizontal",
+           "property_bag": {
+            "#slider_steps": 20,
+            "#slider_value": 19
+           },
+           "bindings": [
+            {
+             "binding_name": "#slider_value"
+            }
+           ]
+          }
+         },
+         {
+          "ed_ch@common.slider": {
+           "size": [
+            14,
+            "100% - 18px"
+           ],
+           "anchor_from": "top_right",
+           "anchor_to": "top_right",
+           "layer": 20,
+           "$slider_name": "ed_ch",
+           "$slider_steps": 20,
+           "$slider_direction": "vertical",
+           "property_bag": {
+            "#slider_steps": 20,
+            "#slider_value": 9
+           },
+           "bindings": [
+            {
+             "binding_name": "#slider_value"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "cap_grp": {
+        "type": "panel",
+        "size": [
+         "40%",
+         40
+        ],
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "offset": [
+         -8,
+         -8
+        ],
+        "controls": [
+         {
+          "cap_region": {
+           "type": "panel",
+           "size": [
+            "100%",
+            22
+           ],
+           "anchor_from": "top_left",
+           "anchor_to": "top_left",
+           "controls": [
+            {
+             "cap_box": {
+              "type": "image",
+              "texture": "textures/ui/hs_box",
+              "color": [
+               1,
+               0.8,
+               0.3
+              ],
+              "alpha": 0.45,
+              "size": [
+               "100%",
+               "100%"
+              ],
+              "anchor_from": "right_middle",
+              "anchor_to": "right_middle",
+              "property_bag": {
+               "#size_binding_x": 0.6,
+               "#size_binding_y": 1.0
+              },
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "ed_cap",
+                "source_property_name": "((10 - #slider_value) / 10)",
+                "target_property_name": "#size_binding_x"
+               }
+              ],
+              "controls": [
+               {
+                "ot": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  1,
+                  0.9,
+                  0.5
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "top_middle",
+                 "anchor_to": "top_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ob": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  1,
+                  0.9,
+                  0.5
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "bottom_middle",
+                 "anchor_to": "bottom_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ol": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  1,
+                  0.9,
+                  0.5
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "left_middle",
+                 "anchor_to": "left_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "or": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  1,
+                  0.9,
+                  0.5
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "right_middle",
+                 "anchor_to": "right_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "cl": {
+                 "type": "label",
+                 "text": "Captions",
+                 "color": [
+                  1,
+                  1,
+                  1
+                 ],
+                 "localize": false,
+                 "layer": 4,
+                 "anchor_from": "right_middle",
+                 "anchor_to": "right_middle",
+                 "offset": [
+                  -4,
+                  0
+                 ]
+                }
+               }
+              ]
+             }
+            }
+           ]
+          }
+         },
+         {
+          "ed_cap@common.slider": {
+           "size": [
+            "100%",
+            14
+           ],
+           "anchor_from": "bottom_left",
+           "anchor_to": "bottom_left",
+           "layer": 20,
+           "$slider_name": "ed_cap",
+           "$slider_steps": 10,
+           "$slider_direction": "horizontal",
+           "property_bag": {
+            "#slider_steps": 10,
+            "#slider_value": 4
+           },
+           "bindings": [
+            {
+             "binding_name": "#slider_value"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk0": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [
+         15,
+         15
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp0": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [
+         15,
+         15
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_0",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp0_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp0_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp0_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp0_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk1": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "offset": [
+         0,
+         15
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp1": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "offset": [
+         0,
+         15
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_1",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp1_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp1_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp1_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp1_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk2": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "offset": [
+         -15,
+         15
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp2": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "offset": [
+         -15,
+         15
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_2",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp2_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp2_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp2_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp2_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk3": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "left_middle",
+        "anchor_to": "left_middle",
+        "offset": [
+         15,
+         0
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp3": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "left_middle",
+        "anchor_to": "left_middle",
+        "offset": [
+         15,
+         0
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_3",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp3_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp3_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp3_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp3_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk4": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [
+         0,
+         -30
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp4": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [
+         0,
+         -30
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_4",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp4_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp4_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp4_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp4_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk5": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "offset": [
+         -15,
+         0
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp5": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "offset": [
+         -15,
+         0
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_5",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp5_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp5_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp5_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp5_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk6": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "offset": [
+         15,
+         -45
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp6": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "offset": [
+         15,
+         -45
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_6",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp6_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp6_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp6_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp6_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk7": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "offset": [
+         0,
+         -62
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp7": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "offset": [
+         0,
+         -62
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_7",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp7_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp7_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp7_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp7_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "mk8": {
+        "type": "image",
+        "texture": "textures/ui/hs_box",
+        "color": [
+         0.6,
+         0.6,
+         0.6
+        ],
+        "alpha": 0.35,
+        "size": [
+         6,
+         6
+        ],
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "offset": [
+         -15,
+         -45
+        ],
+        "layer": 55
+       }
+      },
+      {
+       "cp8": {
+        "type": "panel",
+        "size": [
+         "100%c",
+         "100%cm"
+        ],
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "offset": [
+         -15,
+         -45
+        ],
+        "layer": 60,
+        "bindings": [
+         {
+          "binding_type": "view",
+          "source_control_name": "pos_8",
+          "source_property_name": "(#toggle_state)",
+          "target_property_name": "#visible"
+         }
+        ],
+        "controls": [
+         {
+          "cp8_s0": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 0.8,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 0)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp8_s1": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.0,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 1)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp8_s2": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.33,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 2)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         },
+         {
+          "cp8_s3": {
+           "type": "label",
+           "text": "FPS 60\nCPS 8",
+           "localize": false,
+           "shadow": true,
+           "color": [
+            0.6,
+            0.9,
+            1
+           ],
+           "font_scale_factor": 1.67,
+           "bindings": [
+            {
+             "binding_type": "view",
+             "source_control_name": "ed_cs",
+             "source_property_name": "(#slider_value = 3)",
+             "target_property_name": "#visible"
+            }
+           ]
+          }
+         }
+        ]
+       }
+      }
+     ]
+    }
+   },
+   {
+    "def_view": {
+     "type": "panel",
+     "size": [
+      "100%",
+      "100%"
+     ],
+     "layer": 10,
+     "bindings": [
+      {
+       "binding_type": "view",
+       "source_control_name": "ed_def",
+       "source_property_name": "(#toggle_state)",
+       "target_property_name": "#visible"
+      }
+     ],
+     "controls": [
+      {
+       "dchat_grp": {
+        "type": "panel",
+        "size": [
+         "50%",
+         "100% - 176px"
+        ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "offset": [
+         8,
+         -8
+        ],
+        "controls": [
+         {
+          "dregion": {
+           "type": "panel",
+           "size": [
+            "100% - 18px",
+            "100% - 18px"
+           ],
+           "anchor_from": "top_left",
+           "anchor_to": "top_left",
+           "controls": [
+            {
+             "dchat": {
+              "type": "image",
+              "texture": "textures/ui/hs_box",
+              "color": [
+               0.3,
+               0.6,
+               1
+              ],
+              "alpha": 0.45,
+              "size": [
+               "100%",
+               "50%"
+              ],
+              "anchor_from": "top_left",
+              "anchor_to": "top_left",
+              "controls": [
+               {
+                "ot": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.6,
+                  0.85,
+                  1
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "top_middle",
+                 "anchor_to": "top_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ob": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.6,
+                  0.85,
+                  1
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "bottom_middle",
+                 "anchor_to": "bottom_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ol": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.6,
+                  0.85,
+                  1
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "left_middle",
+                 "anchor_to": "left_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "or": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.6,
+                  0.85,
+                  1
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "right_middle",
+                 "anchor_to": "right_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "dl": {
+                 "type": "label",
+                 "text": "<Steve> hello  (chat 100% x 50%)",
+                 "color": [
+                  1,
+                  1,
+                  1
+                 ],
+                 "localize": false,
+                 "layer": 4,
+                 "anchor_from": "top_left",
+                 "anchor_to": "top_left",
+                 "offset": [
+                  3,
+                  2
+                 ]
+                }
+               }
+              ]
+             }
+            },
+            {
+             "reg": {
+              "type": "panel",
+              "size": [
+               "100%",
+               "100%"
+              ],
+              "controls": [
+               {
+                "ot": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.4,
+                  0.4,
+                  0.4
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "top_middle",
+                 "anchor_to": "top_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ob": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.4,
+                  0.4,
+                  0.4
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "bottom_middle",
+                 "anchor_to": "bottom_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ol": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.4,
+                  0.4,
+                  0.4
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "left_middle",
+                 "anchor_to": "left_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "or": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  0.4,
+                  0.4,
+                  0.4
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "right_middle",
+                 "anchor_to": "right_middle",
+                 "layer": 3
+                }
+               }
+              ]
+             }
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "dcap_grp": {
+        "type": "panel",
+        "size": [
+         "40%",
+         40
+        ],
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "offset": [
+         -8,
+         -8
+        ],
+        "controls": [
+         {
+          "dcreg": {
+           "type": "panel",
+           "size": [
+            "100%",
+            22
+           ],
+           "anchor_from": "top_left",
+           "anchor_to": "top_left",
+           "controls": [
+            {
+             "dcap": {
+              "type": "image",
+              "texture": "textures/ui/hs_box",
+              "color": [
+               1,
+               0.8,
+               0.3
+              ],
+              "alpha": 0.45,
+              "size": [
+               "60%",
+               "100%"
+              ],
+              "anchor_from": "right_middle",
+              "anchor_to": "right_middle",
+              "controls": [
+               {
+                "ot": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  1,
+                  0.9,
+                  0.5
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "top_middle",
+                 "anchor_to": "top_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ob": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  1,
+                  0.9,
+                  0.5
+                 ],
+                 "size": [
+                  "100%",
+                  1
+                 ],
+                 "anchor_from": "bottom_middle",
+                 "anchor_to": "bottom_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "ol": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  1,
+                  0.9,
+                  0.5
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "left_middle",
+                 "anchor_to": "left_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "or": {
+                 "type": "image",
+                 "texture": "textures/ui/hs_box",
+                 "color": [
+                  1,
+                  0.9,
+                  0.5
+                 ],
+                 "size": [
+                  1,
+                  "100%"
+                 ],
+                 "anchor_from": "right_middle",
+                 "anchor_to": "right_middle",
+                 "layer": 3
+                }
+               },
+               {
+                "dl": {
+                 "type": "label",
+                 "text": "Captions 30%",
+                 "color": [
+                  1,
+                  1,
+                  1
+                 ],
+                 "localize": false,
+                 "layer": 4,
+                 "anchor_from": "right_middle",
+                 "anchor_to": "right_middle",
+                 "offset": [
+                  -4,
+                  0
+                 ]
+                }
+               }
+              ]
+             }
+            }
+           ]
+          }
+         }
+        ]
+       }
+      },
+      {
+       "dcnt": {
+        "type": "label",
+        "text": "FPS 60\nCPS 8",
+        "localize": false,
+        "shadow": true,
+        "color": [
+         0.6,
+         0.9,
+         1
+        ],
+        "font_scale_factor": 1.0,
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [
+         15,
+         15
+        ],
+        "layer": 60
+       }
+      }
+     ]
+    }
+   },
+   {
+    "ctrl": {
+     "type": "image",
+     "texture": "textures/ui/hs_box",
+     "color": [
+      0.05,
+      0.05,
+      0.08
+     ],
+     "alpha": 0.92,
+     "size": [
+      "100%c + 8px",
+      "100%c + 8px"
+     ],
+     "anchor_from": "top_right",
+     "anchor_to": "top_right",
+     "offset": [
+      -4,
+      20
+     ],
+     "layer": 50,
+     "controls": [
+      {
+       "inner": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": [
+         "100%cm",
+         "100%c"
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "controls": [
+         {
+          "title": {
+           "type": "label",
+           "text": "HUD Editor v3.3",
+           "color": [
+            1,
+            1,
+            0.6
+           ],
+           "localize": false
+          }
+         },
+         {
+          "cols": {
+           "type": "stack_panel",
+           "orientation": "horizontal",
+           "size": [
+            "100%c",
+            "100%cm"
+           ],
+           "controls": [
+            {
+             "lcol": {
+              "type": "stack_panel",
+              "orientation": "vertical",
+              "size": [
+               "100%cm",
+               "100%c"
+              ],
+              "controls": [
+               {
+                "h1": {
+                 "type": "label",
+                 "text": "Chat & captions",
+                 "color": [
+                  1,
+                  1,
+                  0.6
+                 ],
+                 "localize": false
+                }
+               },
+               {
+                "r_cm": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  14
+                 ],
+                 "controls": [
+                  {
+                   "l": {
+                    "type": "label",
+                    "text": "g_chat_max [",
+                    "color": [
+                     0.8,
+                     0.8,
+                     0.8
+                    ],
+                    "localize": false
+                   }
+                  },
+                  {
+                   "ed_cw_ro": {
+                    "type": "panel",
+                    "size": [
+                     36,
+                     10
+                    ],
+                    "controls": [
+                     {
+                      "ed_cw_r0": {
+                       "type": "label",
+                       "text": "\"5%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 0)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r1": {
+                       "type": "label",
+                       "text": "\"10%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 1)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r2": {
+                       "type": "label",
+                       "text": "\"15%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 2)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r3": {
+                       "type": "label",
+                       "text": "\"20%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 3)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r4": {
+                       "type": "label",
+                       "text": "\"25%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 4)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r5": {
+                       "type": "label",
+                       "text": "\"30%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 5)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r6": {
+                       "type": "label",
+                       "text": "\"35%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 6)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r7": {
+                       "type": "label",
+                       "text": "\"40%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 7)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r8": {
+                       "type": "label",
+                       "text": "\"45%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 8)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r9": {
+                       "type": "label",
+                       "text": "\"50%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 9)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r10": {
+                       "type": "label",
+                       "text": "\"55%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 10)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r11": {
+                       "type": "label",
+                       "text": "\"60%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 11)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r12": {
+                       "type": "label",
+                       "text": "\"65%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 12)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r13": {
+                       "type": "label",
+                       "text": "\"70%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 13)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r14": {
+                       "type": "label",
+                       "text": "\"75%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 14)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r15": {
+                       "type": "label",
+                       "text": "\"80%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 15)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r16": {
+                       "type": "label",
+                       "text": "\"85%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 16)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r17": {
+                       "type": "label",
+                       "text": "\"90%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 17)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r18": {
+                       "type": "label",
+                       "text": "\"95%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 18)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cw_r19": {
+                       "type": "label",
+                       "text": "\"100%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cw",
+                         "source_property_name": "(#slider_value = 19)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     }
+                    ]
+                   }
+                  },
+                  {
+                   "c": {
+                    "type": "label",
+                    "text": ", ",
+                    "color": [
+                     0.8,
+                     0.8,
+                     0.8
+                    ],
+                    "localize": false
+                   }
+                  },
+                  {
+                   "ed_ch_ro": {
+                    "type": "panel",
+                    "size": [
+                     36,
+                     10
+                    ],
+                    "controls": [
+                     {
+                      "ed_ch_r0": {
+                       "type": "label",
+                       "text": "\"5%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 0)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r1": {
+                       "type": "label",
+                       "text": "\"10%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 1)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r2": {
+                       "type": "label",
+                       "text": "\"15%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 2)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r3": {
+                       "type": "label",
+                       "text": "\"20%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 3)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r4": {
+                       "type": "label",
+                       "text": "\"25%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 4)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r5": {
+                       "type": "label",
+                       "text": "\"30%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 5)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r6": {
+                       "type": "label",
+                       "text": "\"35%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 6)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r7": {
+                       "type": "label",
+                       "text": "\"40%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 7)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r8": {
+                       "type": "label",
+                       "text": "\"45%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 8)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r9": {
+                       "type": "label",
+                       "text": "\"50%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 9)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r10": {
+                       "type": "label",
+                       "text": "\"55%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 10)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r11": {
+                       "type": "label",
+                       "text": "\"60%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 11)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r12": {
+                       "type": "label",
+                       "text": "\"65%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 12)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r13": {
+                       "type": "label",
+                       "text": "\"70%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 13)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r14": {
+                       "type": "label",
+                       "text": "\"75%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 14)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r15": {
+                       "type": "label",
+                       "text": "\"80%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 15)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r16": {
+                       "type": "label",
+                       "text": "\"85%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 16)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r17": {
+                       "type": "label",
+                       "text": "\"90%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 17)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r18": {
+                       "type": "label",
+                       "text": "\"95%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 18)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_ch_r19": {
+                       "type": "label",
+                       "text": "\"100%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_ch",
+                         "source_property_name": "(#slider_value = 19)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     }
+                    ]
+                   }
+                  },
+                  {
+                   "e": {
+                    "type": "label",
+                    "text": "]",
+                    "color": [
+                     0.8,
+                     0.8,
+                     0.8
+                    ],
+                    "localize": false
+                   }
+                  }
+                 ]
+                }
+               },
+               {
+                "r_cap": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  14
+                 ],
+                 "controls": [
+                  {
+                   "l": {
+                    "type": "label",
+                    "text": "g_cap_size [",
+                    "color": [
+                     0.8,
+                     0.8,
+                     0.8
+                    ],
+                    "localize": false
+                   }
+                  },
+                  {
+                   "ed_cap_ro": {
+                    "type": "panel",
+                    "size": [
+                     36,
+                     10
+                    ],
+                    "controls": [
+                     {
+                      "ed_cap_r0": {
+                       "type": "label",
+                       "text": "\"50%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 0)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r1": {
+                       "type": "label",
+                       "text": "\"45%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 1)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r2": {
+                       "type": "label",
+                       "text": "\"40%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 2)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r3": {
+                       "type": "label",
+                       "text": "\"35%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 3)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r4": {
+                       "type": "label",
+                       "text": "\"30%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 4)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r5": {
+                       "type": "label",
+                       "text": "\"25%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 5)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r6": {
+                       "type": "label",
+                       "text": "\"20%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 6)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r7": {
+                       "type": "label",
+                       "text": "\"15%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 7)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r8": {
+                       "type": "label",
+                       "text": "\"10%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 8)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cap_r9": {
+                       "type": "label",
+                       "text": "\"5%\"",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cap",
+                         "source_property_name": "(#slider_value = 9)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     }
+                    ]
+                   }
+                  },
+                  {
+                   "e": {
+                    "type": "label",
+                    "text": ", \"100%\"]",
+                    "color": [
+                     0.8,
+                     0.8,
+                     0.8
+                    ],
+                    "localize": false
+                   }
+                  }
+                 ]
+                }
+               },
+               {
+                "r_txl": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  14
+                 ],
+                 "controls": [
+                  {
+                   "l": {
+                    "type": "label",
+                    "text": "g_chat_text ",
+                    "color": [
+                     0.8,
+                     0.8,
+                     0.8
+                    ],
+                    "localize": false
+                   }
+                  },
+                  {
+                   "ed_tx_ro": {
+                    "type": "panel",
+                    "size": [
+                     36,
+                     10
+                    ],
+                    "controls": [
+                     {
+                      "ed_tx_r0": {
+                       "type": "label",
+                       "text": "0.8",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_tx",
+                         "source_property_name": "(#slider_value = 0)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_tx_r1": {
+                       "type": "label",
+                       "text": "1.0",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_tx",
+                         "source_property_name": "(#slider_value = 1)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_tx_r2": {
+                       "type": "label",
+                       "text": "1.25",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_tx",
+                         "source_property_name": "(#slider_value = 2)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_tx_r3": {
+                       "type": "label",
+                       "text": "1.5",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_tx",
+                         "source_property_name": "(#slider_value = 3)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     }
+                    ]
+                   }
+                  }
+                 ]
+                }
+               },
+               {
+                "r_tx": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  14
+                 ],
+                 "controls": [
+                  {
+                   "ed_tx@common.slider": {
+                    "size": [
+                     140,
+                     12
+                    ],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "layer": 20,
+                    "$slider_name": "ed_tx",
+                    "$slider_steps": 4,
+                    "$slider_direction": "horizontal",
+                    "property_bag": {
+                     "#slider_steps": 4,
+                     "#slider_value": 1
+                    },
+                    "bindings": [
+                     {
+                      "binding_name": "#slider_value"
+                     }
+                    ]
+                   }
+                  }
+                 ]
+                }
+               },
+               {
+                "hint2": {
+                 "type": "label",
+                 "text": "(+ g_chat_text_custom true)",
+                 "color": [
+                  0.6,
+                  0.75,
+                  0.9
+                 ],
+                 "localize": false
+                }
+               },
+               {
+                "hint": {
+                 "type": "label",
+                 "text": "Drag the bars on the boxes",
+                 "color": [
+                  0.6,
+                  0.75,
+                  0.9
+                 ],
+                 "localize": false
+                }
+               }
+              ]
+             }
+            },
+            {
+             "gap": {
+              "type": "panel",
+              "size": [
+               6,
+               1
+              ]
+             }
+            },
+            {
+             "rcol": {
+              "type": "stack_panel",
+              "orientation": "vertical",
+              "size": [
+               "100%cm",
+               "100%c"
+              ],
+              "controls": [
+               {
+                "h2": {
+                 "type": "label",
+                 "text": "FPS/CPS spot",
+                 "color": [
+                  1,
+                  1,
+                  0.6
+                 ],
+                 "localize": false
+                }
+               },
+               {
+                "grow0": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  16
+                 ],
+                 "controls": [
+                  {
+                   "pos_0@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "TL",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 0,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_0"
+                   }
+                  },
+                  {
+                   "pos_1@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "T",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 1,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_1"
+                   }
+                  },
+                  {
+                   "pos_2@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "TR",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 2,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_2"
+                   }
+                  }
+                 ]
+                }
+               },
+               {
+                "grow1": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  16
+                 ],
+                 "controls": [
+                  {
+                   "pos_3@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "L",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 3,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_3"
+                   }
+                  },
+                  {
+                   "pos_4@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "C",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 4,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_4"
+                   }
+                  },
+                  {
+                   "pos_5@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "R",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 5,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_5"
+                   }
+                  }
+                 ]
+                }
+               },
+               {
+                "grow2": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  16
+                 ],
+                 "controls": [
+                  {
+                   "pos_6@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "BL",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 6,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_6"
+                   }
+                  },
+                  {
+                   "pos_7@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "B",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 7,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_7"
+                   }
+                  },
+                  {
+                   "pos_8@common_toggles.light_text_toggle": {
+                    "size": [
+                     32,
+                     16
+                    ],
+                    "$button_text": "BR",
+                    "$toggle_name": "hs_cnt_pos",
+                    "$radio_toggle_group": true,
+                    "$toggle_group_forced_index": 8,
+                    "$toggle_group_default_selected": 0,
+                    "$toggle_view_binding_name": "pos_8"
+                   }
+                  }
+                 ]
+                }
+               },
+               {
+                "r_csl": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  14
+                 ],
+                 "controls": [
+                  {
+                   "l": {
+                    "type": "label",
+                    "text": "g_fc_size ",
+                    "color": [
+                     0.8,
+                     0.8,
+                     0.8
+                    ],
+                    "localize": false
+                   }
+                  },
+                  {
+                   "ed_cs_ro": {
+                    "type": "panel",
+                    "size": [
+                     46,
+                     10
+                    ],
+                    "controls": [
+                     {
+                      "ed_cs_r0": {
+                       "type": "label",
+                       "text": "[12, 12]",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cs",
+                         "source_property_name": "(#slider_value = 0)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cs_r1": {
+                       "type": "label",
+                       "text": "[15, 15]",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cs",
+                         "source_property_name": "(#slider_value = 1)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cs_r2": {
+                       "type": "label",
+                       "text": "[20, 20]",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cs",
+                         "source_property_name": "(#slider_value = 2)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     },
+                     {
+                      "ed_cs_r3": {
+                       "type": "label",
+                       "text": "[25, 25]",
+                       "localize": false,
+                       "color": [
+                        0.75,
+                        1,
+                        0.75
+                       ],
+                       "anchor_from": "left_middle",
+                       "anchor_to": "left_middle",
+                       "bindings": [
+                        {
+                         "binding_type": "view",
+                         "source_control_name": "ed_cs",
+                         "source_property_name": "(#slider_value = 3)",
+                         "target_property_name": "#visible"
+                        }
+                       ]
+                      }
+                     }
+                    ]
+                   }
+                  }
+                 ]
+                }
+               },
+               {
+                "r_cs": {
+                 "type": "stack_panel",
+                 "orientation": "horizontal",
+                 "size": [
+                  "100%c",
+                  14
+                 ],
+                 "controls": [
+                  {
+                   "ed_cs@common.slider": {
+                    "size": [
+                     100,
+                     12
+                    ],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "layer": 20,
+                    "$slider_name": "ed_cs",
+                    "$slider_steps": 4,
+                    "$slider_direction": "horizontal",
+                    "property_bag": {
+                     "#slider_steps": 4,
+                     "#slider_value": 1
+                    },
+                    "bindings": [
+                     {
+                      "binding_name": "#slider_value"
+                     }
+                    ]
+                   }
+                  }
+                 ]
+                }
+               }
+              ]
+             }
+            }
+           ]
+          }
+         },
+         {
+          "pos_a": {
+           "type": "panel",
+           "size": [
+            "100%cm",
+            10
+           ],
+           "controls": [
+            {
+             "pos_a0": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"top_left\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_0",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_a1": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"top_middle\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_1",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_a2": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"top_right\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_2",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_a3": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"left_middle\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_3",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_a4": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"center\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_4",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_a5": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"right_middle\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_5",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_a6": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"bottom_left\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_6",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_a7": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"bottom_middle\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_7",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_a8": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_anchor \"bottom_right\"",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_8",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            }
+           ]
+          }
+         },
+         {
+          "pos_o": {
+           "type": "panel",
+           "size": [
+            "100%cm",
+            10
+           ],
+           "controls": [
+            {
+             "pos_o0": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [15, 15]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_0",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_o1": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [0, 15]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_1",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_o2": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [-15, 15]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_2",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_o3": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [15, 0]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_3",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_o4": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [0, -30]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_4",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_o5": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [-15, 0]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_5",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_o6": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [15, -45]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_6",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_o7": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [0, -62]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_7",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            },
+            {
+             "pos_o8": {
+              "type": "label",
+              "localize": false,
+              "text": "g_fc_offset [-15, -45]",
+              "color": [
+               0.75,
+               1,
+               0.75
+              ],
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+              "bindings": [
+               {
+                "binding_type": "view",
+                "source_control_name": "pos_8",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+               }
+              ]
+             }
+            }
+           ]
+          }
+         },
+         {
+          "foot": {
+           "type": "stack_panel",
+           "orientation": "horizontal",
+           "size": [
+            "100%c",
+            16
+           ],
+           "controls": [
+            {
+             "def@common_toggles.light_text_toggle": {
+              "size": [
+               60,
+               16
+              ],
+              "$button_text": "Default",
+              "$toggle_name": "ed_def",
+              "$toggle_view_binding_name": "ed_def"
+             }
+            },
+            {
+             "save": {
+              "type": "label",
+              "text": "  Save: copy values (see README)",
+              "color": [
+               0.6,
+               0.75,
+               0.9
+              ],
+              "localize": false
+             }
+            }
+           ]
+          }
+         }
+        ]
+       }
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,10 @@
+const subs = {};
+const sig = n => ({ subscribe: (cb) => { (subs[n] ||= []).push(cb); return cb; } });
+export const EntitySwingSource = { Attack:'Attack', Build:'Build', DropItem:'DropItem', Event:'Event', Interact:'Interact', Mine:'Mine', None:'None', ThrowItem:'ThrowItem' };
+export const titles = [];
+const p = { id: 'p1', onScreenDisplay: { setTitle: (t, o) => titles.push({ t, o }) } };
+export const players = [p];
+export const world = { afterEvents: { playerSwingStart: sig('swing'), playerSpawn: sig('spawn'), playerLeave: sig('leave') }, getAllPlayers: () => players };
+export let interval = null;
+export const system = { runInterval: (fn, ticks) => { interval = { fn, ticks }; return 1; } };
+export const fire = (n, ev) => (subs[n] || []).forEach(cb => cb(ev));

@@ -1,0 +1,32 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.hs.hide_body": {
+   "loop": true,
+   "bones": {
+    "root": {
+     "scale": 0.0001
+    },
+    "body": {
+     "scale": 0.0001
+    },
+    "cape": {
+     "scale": 0.0001
+    }
+   }
+  },
+  "animation.hs.readout_transform": {
+   "loop": true,
+   "bones": {
+    "hs_readout": {
+     "position": [
+      0,
+      "variable.hs_y",
+      0
+     ],
+     "scale": "variable.hs_size"
+    }
+   }
+  }
+ }
+}

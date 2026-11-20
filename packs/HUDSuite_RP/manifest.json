@@ -1,0 +1,77 @@
+{
+  "format_version": 3,
+  "header": {
+    "name": "HUD Suite v3.3",
+    "uuid": "e808e0f9-990f-463b-8f4a-d7c08725b4ff",
+    "version": "3.3.0",
+    "min_engine_version": "1.21.130",
+    "description": "FPS + CPS readout, chat/captions resize, Pause > HUD Editor. Gear icon = FPS/CPS settings."
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "d3b1d2ca-f82d-4785-a0b9-c055e212012d",
+      "version": "3.3.0"
+    }
+  ],
+  "settings": [
+    {
+      "type": "label",
+      "text": "FPS / CPS readout (drawn by the HUD paper doll). Saved automatically."
+    },
+    {
+      "type": "toggle",
+      "text": "Show FPS / CPS readout",
+      "name": "hs:readout",
+      "default": true
+    },
+    {
+      "type": "toggle",
+      "text": "Show FPS",
+      "name": "hs:show_fps",
+      "default": true
+    },
+    {
+      "type": "toggle",
+      "text": "Show CPS",
+      "name": "hs:show_cps",
+      "default": true
+    },
+    {
+      "type": "slider",
+      "text": "Text size (%)",
+      "name": "hs:size",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "default": 100
+    },
+    {
+      "type": "slider",
+      "text": "Move left / right",
+      "name": "hs:move_x",
+      "min": -60,
+      "max": 60,
+      "step": 10,
+      "default": 0
+    },
+    {
+      "type": "slider",
+      "text": "Move down / up",
+      "name": "hs:move_y",
+      "min": -40,
+      "max": 40,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "label",
+      "text": "Chat, captions and the readout's screen corner: Pause > HUD Editor."
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "HUD Suite"
+    ]
+  }
+}

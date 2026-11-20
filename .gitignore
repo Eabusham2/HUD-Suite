@@ -1,0 +1,4 @@
+dist/
+vanilla/
+__pycache__/
+tests/cps_script/main.under_test.mjs
