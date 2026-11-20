@@ -15,13 +15,15 @@ A Minecraft Bedrock resource pack that lets you resize chat and captions, shows 
 
 Each feature below is written the way it was asked for, followed by how the pack does it.
 
-### "A GUI that lets me resize chat diagonally, vertically or horizontally"
+### "A GUI that lets me resize chat diagonally, vertically or horizontally, from the top right, top or right"
 Pause → **HUD Editor** shows a fullscreen preview of your chat box. Drag the bar under the box to change its width and the bar beside it to change its height. Change both and the box grows diagonally from its corner.
+
+Bedrock pins the chat at its top-left corner. To resize it without moving it, the right edge sets the width, the bottom edge sets the height, and the bottom-right corner moves when you change both.
 
 ### "Make chat not move, only resize"
 Chat stays where the game puts it. The pack only changes its maximum width and height (`$g_chat_max`); its position is never touched.
 
-### "Resize it EXACTLY like an image or text box in Google Slides, but only from the right side for width"
+### "Corner resize of the chat box and right side width resize and height, EXACTLY like resizing an image or text box in Google Slides, but only from the right side for width"
 The chat preview grows from its top-left corner, like dragging a corner handle in Google Slides. Width is changed from the right side only, and height from the bottom.
 
 ### "If there's no drag way, have a slider that's parallel with the edge and the select point lines up"
@@ -30,8 +32,8 @@ Bedrock's UI can't report where a drag ended, so each edge has a bar that runs a
 ### "Captions resize like chat. Captions are bottom right; captions only change width"
 The gold box in the editor is the captions preview, anchored bottom-right like in game. Its bar changes **width only**, and the handle lines up with the box's left edge (`$g_cap_size`).
 
-### "Make the resize generate a preview, fullscreen, with an outline on chat and captions"
-The editor fills the whole screen. Chat (blue) and captions (gold) are drawn at their real screen positions with outlines, and they update live as you drag.
+### "Make the resize generate a preview, make the preview box fullscreen, outline the chat and captions, and show all the counters, not just FPS"
+The editor fills the whole screen. Chat (blue) and captions (gold) are drawn at their real screen positions with outlines, and they update live as you drag. The counter preview shows both lines, `FPS 60` and `CPS 8`.
 
 ### "Add an FPS counter and a CPS counter"
 - **FPS**: worked out from the game's frame time, smoothed and updated 4 times a second.
@@ -39,14 +41,16 @@ The editor fills the whole screen. Chat (blue) and captions (gold) are drawn at 
 
 Both are drawn by the HUD paper doll, so they work with the resource pack alone and need no behavior pack. The `.mcaddon` adds an optional second CPS line that the game's script engine counts.
 
-### "Move the counters around with snaps"
+### "Drag around the counters with a snap to areas (detect the mouse position and move the counter until you release the click)"
 The editor has a 3×3 grid of snap spots (top-left … bottom-right). A preview of `FPS 60 / CPS 8` jumps to the spot you pick. You can fine-tune it with the **Move left/right** and **Move down/up** sliders in the gear menu.
+
+Bedrock never tells a pack where the mouse let go, so a free drag can't move the real counter or be saved. That's why it uses snap spots (see [Known limits](#known-limits)).
 
 ### "A default button"
 **Default** in the editor shows the default layout and the default value of every setting.
 
-### "Scale text size as an option"
-- **Chat text:** the editor's text slider previews the size (`$g_chat_text`). The game's own Chat Settings → Font Size also still works.
+### "Scale text size as an option, with a button to toggle scaling the chat text"
+- **Chat text:** the editor's text slider previews the size (`$g_chat_text`). The on/off switch is `$g_chat_text_custom` in the config file. `true` makes chat use that size, and `false` (the default) keeps the game's own Chat Settings → Font Size.
 - **FPS/CPS text:** the **Text size** slider in the gear menu (50–200 %).
 
 ### "Put the HUD button on the pause menu, as its own menu like Déesse UI, with the coordinate values shown"
@@ -62,15 +66,15 @@ The FPS/CPS settings live in the pack's own settings menu. Open **Settings → G
 - Move left / right
 - Move down / up
 
-### "Persistence via a JSON file"
-Chat size, captions size and the counter's screen corner are saved in `ui/_global_variables.json` inside the pack (see [Saving](#saving)). The game only lets the player model read the gear menu settings, and the menus and HUD layout can't read them, so these sizes have to go in the file.
+### "Persistence via a JSON file, or dump it into a log and read the log"
+Chat size, captions size and the counter's screen corner are saved in `ui/_global_variables.json` inside the pack (see [Saving](#saving)). The game only lets the player model read the gear menu settings, and the menus and HUD layout can't read them, so these sizes have to go in the file. Packs can't write files or logs, so you copy the editor's values into it once.
 
 ### "Add a v# to the name"
 The pack shows as **HUD Suite v3.3** in Global Resources. New versions keep the same pack ID, so they replace the old one instead of piling up copies.
 
 ### "Compatible with UI Utils and Déesse UI, latest GDK version, one resource pack"
 - Every UI change is a small merge rather than a whole-file replacement: chat max size, captions size, an opt-in chat text size, and the paper doll's spot and size. That lets it stack with UI Utils and Déesse UI.
-- Built for the current Bedrock (min engine 1.21.130; the behavior pack uses `@minecraft/server` 2.5.0).
+- Built for the current Bedrock (min engine 1.21.130; the behavior pack uses `@minecraft/server` 2.5.0). The config path under [Saving](#saving) is the one used by the current Windows (GDK) version.
 - Everything except the optional script CPS line is in a single `.mcpack`.
 
 ---
