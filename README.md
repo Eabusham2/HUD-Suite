@@ -125,7 +125,7 @@ Restart the game (or re-enter the world) to apply. To reset, put the defaults ba
 `packs/` holds the generated pack source; `build.py` generates it and the release files.
 
 ```
-pip install pillow
+pip install -r requirements.txt   # Pillow, pinned so PNGs come out byte-identical
 python build.py          # -> packs/HUDSuite_RP, packs/HUDSuite_BP, dist/*.mcpack, dist/*.mcaddon
 ```
 

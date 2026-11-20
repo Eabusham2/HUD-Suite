@@ -38,7 +38,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install build dependencies
-        run: pip install pillow
+        run: pip install -r requirements.txt
 
       - name: Build packs from source
         run: python build.py
@@ -68,7 +68,7 @@ jobs:
           echo "Version $VER"; ls -l dist
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: HUDSuite-${{ steps.ver.outputs.version }}
           path: dist/*
