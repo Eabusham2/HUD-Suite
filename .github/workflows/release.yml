@@ -51,12 +51,7 @@ jobs:
 
       - name: Check committed packs/ match build.py
         run: |
-          if git diff --quiet -- packs && [ -z "$(git ls-files --others --exclude-standard packs)" ]; then
-            echo "packs/ is up to date."
-          else
-            echo "::warning::packs/ in the repo differs from what build.py makes (the release uses the fresh build). Run 'python build.py' and commit packs/."
-            git status --short -- packs
-          fi
+          python tests/check_packs_in_sync.py || echo "::warning::packs/ in the repo differs from what build.py makes (the release uses the fresh build). Run 'python build.py' and commit packs/."
 
       - name: Read version
         id: ver

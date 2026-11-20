@@ -125,7 +125,7 @@ Restart the game (or re-enter the world) to apply. To reset, put the defaults ba
 `packs/` holds the generated pack source; `build.py` generates it and the release files.
 
 ```
-pip install -r requirements.txt   # Pillow, pinned so PNGs come out byte-identical
+pip install -r requirements.txt   # Pillow (pinned)
 python build.py          # -> packs/HUDSuite_RP, packs/HUDSuite_BP, dist/*.mcpack, dist/*.mcaddon
 ```
 
@@ -144,6 +144,7 @@ python build.py          # -> packs/HUDSuite_RP, packs/HUDSuite_BP, dist/*.mcpac
 python tests/test_readout_settings.py   # gear menu settings: on/off, FPS/CPS toggles, size, move
 python tests/test_readout_fps_cps.py    # FPS 30-240, CPS 1-20, drop to 0, digit rendering
 node   tests/cps_script/test.mjs        # behavior pack CPS script against a mock @minecraft/server
+python tests/check_packs_in_sync.py     # after build.py: committed packs/ matches the source
 ```
 
 ## Releasing
