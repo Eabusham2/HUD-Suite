@@ -136,6 +136,7 @@ python build.py          # -> packs/HUDSuite_RP, packs/HUDSuite_BP, dist/*.mcpac
 | `build.py` | manifests and pack settings, HUD overrides, pause-menu HUD Editor, config defaults, CPS script, checks, packaging |
 | `readout_entity.py` | FPS/CPS readout: pixel font, 13 pre-shifted geometries, render controller, Molang |
 | `tests/` | Molang interpreter + readout tests, CPS script test |
+| `.github/workflows/release.yml` | builds from source, tests, and publishes a release (see [Releasing](#releasing)) |
 
 ## Tests
 
@@ -144,6 +145,23 @@ python tests/test_readout_settings.py   # gear menu settings: on/off, FPS/CPS to
 python tests/test_readout_fps_cps.py    # FPS 30-240, CPS 1-20, drop to 0, digit rendering
 node   tests/cps_script/test.mjs        # behavior pack CPS script against a mock @minecraft/server
 ```
+
+## Releasing
+
+Releases are built from source by GitHub Actions:
+
+1. Set the new version in `build.py` (`VER = [major, minor, patch]`), then run `python build.py` and commit `packs/`.
+2. Go to **Actions → Release → Run workflow**.
+
+The workflow builds the `.mcpack` and `.mcaddon` from source, runs the tests, and publishes a release tagged `v<version>` with both files attached. It has three options:
+
+- **notes**: extra text added to the release notes.
+- **overwrite**: if that version is already released, replace its files.
+- **dry_run**: build and test only. The files go to the run's artifacts instead of a release.
+
+## License
+
+[MIT](LICENSE).
 
 ## Credits
 

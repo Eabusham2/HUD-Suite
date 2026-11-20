@@ -1,0 +1,110 @@
+name: Release
+
+# Actions tab -> "Release" -> Run workflow.
+# Builds the .mcpack / .mcaddon from source (build.py), runs the tests, then publishes a GitHub release
+# tagged with the version in build.py (VER = [major, minor, patch]).
+
+on:
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: "Extra release notes (optional)"
+        required: false
+        default: ""
+      overwrite:
+        description: "If this version is already released, replace its files"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Build and test only (files go to the run's artifacts, no release)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependencies
+        run: pip install pillow
+
+      - name: Build packs from source
+        run: python build.py
+
+      - name: Run tests
+        run: |
+          python tests/test_readout_settings.py
+          python tests/test_readout_fps_cps.py
+          node tests/cps_script/test.mjs
+
+      - name: Check committed packs/ match build.py
+        run: |
+          if git diff --quiet -- packs && [ -z "$(git ls-files --others --exclude-standard packs)" ]; then
+            echo "packs/ is up to date."
+          else
+            echo "::warning::packs/ in the repo differs from what build.py makes (the release uses the fresh build). Run 'python build.py' and commit packs/."
+            git status --short -- packs
+          fi
+
+      - name: Read version
+        id: ver
+        run: |
+          VER=$(python -c "import re; print('.'.join(re.search(r'^VER = \[(\d+), (\d+), (\d+)\]', open('build.py').read(), re.M).groups()))")
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VER" >> "$GITHUB_OUTPUT"
+          echo "name=HUD Suite v${VER%.*}" >> "$GITHUB_OUTPUT"
+          echo "Version $VER"; ls -l dist
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v5
+        with:
+          name: HUDSuite-${{ steps.ver.outputs.version }}
+          path: dist/*
+
+      - name: Publish release
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.ver.outputs.tag }}
+          NAME: ${{ steps.ver.outputs.name }}
+          EXTRA: ${{ inputs.notes }}
+          OVERWRITE: ${{ inputs.overwrite }}
+        run: |
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            if [ "$OVERWRITE" = "true" ]; then
+              gh release upload "$TAG" dist/* --clobber
+              echo "Replaced the files on the existing release $TAG."
+              exit 0
+            fi
+            echo "::error::Release $TAG already exists. Bump VER in build.py, or run again with 'overwrite' ticked."
+            exit 1
+          fi
+          MCPACK=$(cd dist && ls *.mcpack); MCADDON=$(cd dist && ls *.mcaddon)
+          {
+            echo "## Downloads"
+            echo "- **$MCPACK**: everything in one resource pack (chat/captions resize, HUD Editor, FPS + CPS)."
+            echo "- **$MCADDON**: the same pack plus an optional behavior pack with a script-counted CPS line."
+            echo
+            echo "## Install"
+            echo "1. Open the file to import it."
+            echo "2. Settings → Global Resources: activate **$NAME** and put it above UI Utils / Déesse UI."
+            echo "3. Settings → Video: **Hide Paperdoll** must be off."
+            if [ -n "$EXTRA" ]; then echo; echo "## Notes"; printf '%s\n' "$EXTRA"; fi
+            echo
+            echo "Full feature list and saving instructions: see the [README](https://github.com/$GITHUB_REPOSITORY#readme)."
+            echo
+            echo "_Built from source by the Release workflow (commit ${GITHUB_SHA::7})._"
+          } > notes.md
+          gh release create "$TAG" dist/* --title "$NAME" --notes-file notes.md --target "$GITHUB_SHA"
