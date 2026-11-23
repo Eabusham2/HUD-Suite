@@ -172,3 +172,11 @@ The workflow builds the `.mcpack` and `.mcaddon` from source, runs the tests, an
 
 - Title "preserved text" pattern from [LeGend077/json-ui-examples](https://github.com/LeGend077/json-ui-examples) (MIT).
 - The paper-doll FPS/CPS technique was studied in Modules+ and OpenQuasar. The implementation, font and models here are original.
+
+## Search keywords (ignore)
+
+`hud-suite`, `minecraft`, `minecraft-bedrock`, `resource-pack`, `behavior-pack`, `mcpack`,
+`mcaddon`, `hud`, `hud-editor`, `json-ui`, `molang`, `fps-counter`,
+`cps-counter`, `chat-resize`, `caption-resize`, `text-scaling`, `pause-menu`, `paper-doll`,
+`snap-grid`, `ui-settings`, `ui-utils`, `deesse-ui`, `global-resources`, `manual-configuration`,
+`minecraft-scripting`, `python`, `pillow`, `pixel-font`, `render-controller`, `pack-generator`
